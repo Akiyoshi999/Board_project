@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block customcss %}
+<link rel='stylesheet' type='text/css' href='{% static "style.css"%}'>
+{% endblock customcss %}
+
+
+{% block content %}
+    <form class="form-signin" method="POST" action=''>{% csrf_token %}
+  <img class="mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+  <h1 class="h4 mb-3 font-weight-normal">サインインしてください</h1>
+
+  {% if error %}
+  {{ error }}
+  {% endif %}
+
+  <label for="inputEmail" class="sr-only">メールアドレス</label>
+  <input type="text" id="inputEmail" class="form-control" name='username' placeholder="ユーザーネーム" required autofocus>
+  <label for="inputPassword" class="sr-only">パスワード</label>
+  <input type="password" id="inputPassword" class="form-control" name='passward' placeholder="パスワード" required>
+  <div class="checkbox mb-3">
+  </div>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">サインイン</button>
+  <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+</form>
+{% endblock content %}
